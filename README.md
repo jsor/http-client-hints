@@ -1,6 +1,9 @@
 HTTP Client Hints
 =================
 
+[![Build Status](https://travis-ci.org/jsor/http-client-hints.svg?branch=master)](http://travis-ci.org/jsor/http-client-hints?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/jsor/http-client-hints/badge.svg?branch=master)](https://coveralls.io/github/jsor/http-client-hints?branch=master)
+
 Utilities for working with [HTTP Client Hints](https://github.com/igrigorik/http-client-hints).
 
 Installation
