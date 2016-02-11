@@ -1,6 +1,6 @@
 {
     "name": "jsor/http-client-hints",
-    "description": "Resolve HTTP Client Hint Headers for serving optimized responsive images.",
+    "description": "Utilities for working with HTTP Client Hints.",
     "keywords": [
         "http",
         "client",
