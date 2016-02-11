@@ -1,0 +1,27 @@
+{
+    "name": "jsor/http-client-hints",
+    "description": "Resolve HTTP Client Hint Headers for serving optimized responsive images.",
+    "keywords": [
+        "http",
+        "client",
+        "hints",
+        "resolver",
+        "responsive",
+        "image"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jan Sorgalla",
+            "email": "jsorgalla@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Jsor\\HttpClientHints\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
