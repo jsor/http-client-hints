@@ -88,8 +88,8 @@ class ResolverTest extends \PHPUnit_Framework_TestCase
 
         $resolver = $resolver
             ->withMapping(array(
-                'width' => 'w',
-                'dpr'   => 'device-pixel-ratio',
+                'Width' => 'w',
+                'Dpr'   => 'device-pixel-ratio',
             ))
             ->withWhitelist(array(
                 'width',

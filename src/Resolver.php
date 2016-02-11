@@ -107,7 +107,7 @@ final class Resolver
 
     private function setMapping(array $mapping)
     {
-        $this->mapping = array_map('strtolower', $mapping);
+        $this->mapping = array_change_key_case($mapping, CASE_LOWER);
     }
 
     private function setWhitelist($whitelist)
