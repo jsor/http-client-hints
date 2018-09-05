@@ -60,4 +60,5 @@ $server->outputImage($path, array_merge($_GET, $resolved));
 License
 -------
 
-Copyright (c) 2016 Jan Sorgalla. Released under the [MIT License](https://github.com/jsor/http-client-hints/blob/master/LICENSE).
+Copyright (c) 2016-2018 Jan Sorgalla. 
+Released under the [MIT License](LICENSE).
