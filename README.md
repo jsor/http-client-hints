@@ -4,7 +4,8 @@ HTTP Client Hints
 [![Build Status](https://travis-ci.org/jsor/http-client-hints.svg?branch=master)](https://travis-ci.org/jsor/http-client-hints?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/jsor/http-client-hints/badge.svg?branch=master)](https://coveralls.io/github/jsor/http-client-hints?branch=master)
 
-Utilities for working with [HTTP Client Hints](https://httpwg.org/http-extensions/client-hints.html).
+Utilities for working with
+[HTTP Client Hints](https://httpwg.org/http-extensions/client-hints.html).
 
 Installation
 ------------
@@ -15,8 +16,8 @@ Install the latest version with [Composer](https://getcomposer.org).
 composer require jsor/http-client-hints
 ```
 
-Check the [Packagist page](https://packagist.org/packages/jsor/http-client-hints) for all
-available versions.
+Check the [Packagist page](https://packagist.org/packages/jsor/http-client-hints)
+for all available versions.
 
 Example
 -------
@@ -31,7 +32,8 @@ $resolved = (new Jsor\HttpClientHints\Resolver())
     ->withMapping([
         // Map Width header to w key
         'width'  => 'w',
-        // Needed to extract the height from the query params for recalculation depending on Width if present
+        // Needed to extract the height from the query params
+        // for recalculation depending on Width if present
         'height' => 'h',
     ])
     ->resolve($_SERVER, $_GET)
