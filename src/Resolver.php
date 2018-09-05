@@ -4,7 +4,7 @@ namespace Jsor\HttpClientHints;
 
 final class Resolver
 {
-    private $mapping   = [];
+    private $mapping = [];
     private $allowedHeaders = [
         'dpr',
         'width',
