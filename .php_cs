@@ -1,9 +1,12 @@
 <?php
 
 $config = PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
     ->setRules(array(
         '@PSR2' => true,
-        'array_syntax' => ['syntax' => 'long'],
+        'array_syntax' => ['syntax' => 'short'],
+        'native_constant_invocation' => true,
+        'native_function_invocation' => true,
     ));
 
 $config->getFinder()

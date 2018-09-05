@@ -9,21 +9,21 @@ class ResolverTest extends \PHPUnit_Framework_TestCase
     {
         $resolver = new Resolver();
 
-        $params = $resolver->resolve(array(
+        $params = $resolver->resolve([
             'DPR'            => '2',
             'Width'          => '123',
-            'Viewport-Width' => array('1234'),
+            'Viewport-Width' => ['1234'],
             'Downlink'       => '0.384',
             'Save-Data'      => 'on',
-        ));
+        ]);
 
-        $expected = array(
+        $expected = [
             'dpr'            => '2',
             'width'          => '123',
             'viewport-width' => '1234',
             'downlink'       => '0.384',
             'save-data'      => 'on',
-        );
+        ];
 
         $this->assertEquals($expected, $params);
     }
@@ -33,22 +33,22 @@ class ResolverTest extends \PHPUnit_Framework_TestCase
     {
         $resolver = new Resolver();
 
-        $params = $resolver->resolve(array(
+        $params = $resolver->resolve([
             'HTTP_DPR'            => '2',
             'HTTP_WIDTH'          => '123',
-            'HTTP_VIEWPORT_WIDTH' => array('1234'),
+            'HTTP_VIEWPORT_WIDTH' => ['1234'],
             'HTTP_DOWNLINK'       => '0.384',
             'HTTP_SAVE_DATA'      => 'on',
             'HTTP_FOO'            => 'bar',
-        ));
+        ]);
 
-        $expected = array(
+        $expected = [
             'dpr'            => '2',
             'width'          => '123',
             'viewport-width' => '1234',
             'downlink'       => '0.384',
             'save-data'      => 'on',
-        );
+        ];
 
         $this->assertEquals($expected, $params);
     }
@@ -56,27 +56,27 @@ class ResolverTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_is_configurable_via_constructor()
     {
-        $resolver = new Resolver(array(
-            'mapping' => array(
+        $resolver = new Resolver([
+            'mapping' => [
                 'width' => 'w',
                 'dpr'   => 'device-pixel-ratio'
-            ),
-            'allowed_headers' => array(
+            ],
+            'allowed_headers' => [
                 'width',
                 'dpr',
-            )
-        ));
+            ]
+        ]);
 
-        $params = $resolver->resolve(array(
+        $params = $resolver->resolve([
             'HTTP_WIDTH' => '123',
             'HTTP_DPR'   => '2',
             'HTTP_FOO'   => 'bar',
-        ));
+        ]);
 
-        $expected = array(
+        $expected = [
             'device-pixel-ratio' => '2',
             'w'                  => '123',
-        );
+        ];
 
         $this->assertEquals($expected, $params);
     }
@@ -87,26 +87,26 @@ class ResolverTest extends \PHPUnit_Framework_TestCase
         $resolver = new Resolver();
 
         $resolver = $resolver
-            ->withMapping(array(
+            ->withMapping([
                 'Width' => 'w',
                 'Dpr'   => 'device-pixel-ratio',
-            ))
-            ->withAllowedHeaders(array(
+            ])
+            ->withAllowedHeaders([
                 'width',
                 'dpr',
-            ))
+            ])
         ;
 
-        $params = $resolver->resolve(array(
+        $params = $resolver->resolve([
             'HTTP_WIDTH' => '123',
             'HTTP_DPR'   => '2',
             'HTTP_FOO'   => 'bar',
-        ));
+        ]);
 
-        $expected = array(
+        $expected = [
             'device-pixel-ratio' => '2',
             'w'                  => '123',
-        );
+        ];
 
         $this->assertEquals($expected, $params);
     }
@@ -120,15 +120,15 @@ class ResolverTest extends \PHPUnit_Framework_TestCase
             ->withAllowedHeaders('Width,DPR,FOO')
         ;
 
-        $params = $resolver->resolve(array(
+        $params = $resolver->resolve([
             'HTTP_WIDTH' => '123',
             'HTTP_DPR'   => '2',
-        ));
+        ]);
 
-        $expected = array(
+        $expected = [
             'dpr'   => '2',
             'width' => '123',
-        );
+        ];
 
         $this->assertEquals($expected, $params);
     }
@@ -143,19 +143,19 @@ class ResolverTest extends \PHPUnit_Framework_TestCase
         ;
 
         $params = $resolver->resolve(
-            array(
+            [
                 'HTTP_WIDTH' => '200',
-            ),
-            array(
+            ],
+            [
                 'width'  => '400',
                 'height' => '300'
-            )
+            ]
         );
 
-        $expected = array(
+        $expected = [
             'width'  => '200',
             'height' => '150',
-        );
+        ];
 
         $this->assertEquals($expected, $params);
     }
