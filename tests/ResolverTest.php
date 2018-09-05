@@ -2,7 +2,9 @@
 
 namespace Jsor\HttpClientHints;
 
-class ResolverTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ResolverTest extends TestCase
 {
     /** @test */
     public function it_resolves_headers()
