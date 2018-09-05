@@ -1,23 +1,16 @@
 <?php
 
-$finder = Symfony\CS\Finder\DefaultFinder::create()
-    ->in(__DIR__ . '/src')
-    ->in(__DIR__ . '/tests')
-;
+$config = PhpCsFixer\Config::create()
+    ->setRules(array(
+        '@PSR2' => true,
+        'array_syntax' => ['syntax' => 'long'],
+    ));
 
-return Symfony\CS\Config\Config::create()
-    ->level(Symfony\CS\FixerInterface::PSR2_LEVEL)
-    ->fixers(array(
-        'align_double_arrow',
-        'align_equals',
-        'concat_with_spaces',
-        'ordered_use',
-        'extra_empty_lines',
-        'phpdoc_params',
-        'remove_lines_between_uses',
-        'return',
-        'unused_use',
-        'whitespacy_lines',
-        'long_array_syntax'
-    ))
-    ->finder($finder);
+$config->getFinder()
+    ->in(__DIR__ . '/src')
+    ->in(__DIR__ . '/tests');
+
+$config
+    ->setCacheFile(__DIR__ . '/.php_cs.cache');
+
+return $config;
