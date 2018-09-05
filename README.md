@@ -1,15 +1,15 @@
 HTTP Client Hints
 =================
 
-[![Build Status](https://travis-ci.org/jsor/http-client-hints.svg?branch=master)](http://travis-ci.org/jsor/http-client-hints?branch=master)
+[![Build Status](https://travis-ci.org/jsor/http-client-hints.svg?branch=master)](https://travis-ci.org/jsor/http-client-hints?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/jsor/http-client-hints/badge.svg?branch=master)](https://coveralls.io/github/jsor/http-client-hints?branch=master)
 
-Utilities for working with [HTTP Client Hints](http://httpwg.org/http-extensions/client-hints.html).
+Utilities for working with [HTTP Client Hints](https://httpwg.org/http-extensions/client-hints.html).
 
 Installation
 ------------
 
-Install the latest version with [Composer](http://getcomposer.org).
+Install the latest version with [Composer](https://getcomposer.org).
 
 ```bash
 composer require jsor/http-client-hints
