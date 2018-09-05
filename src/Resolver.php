@@ -5,7 +5,7 @@ namespace Jsor\HttpClientHints;
 final class Resolver
 {
     private $mapping   = array();
-    private $whitelist = array(
+    private $allowedHeaders = array(
         'dpr',
         'width',
         'viewport-width',
@@ -19,8 +19,8 @@ final class Resolver
             $this->setMapping($config['mapping']);
         }
 
-        if (isset($config['whitelist'])) {
-            $this->setWhitelist($config['whitelist']);
+        if (isset($config['allowed_headers'])) {
+            $this->setAllowedHeaders($config['allowed_headers']);
         }
     }
 
@@ -33,11 +33,11 @@ final class Resolver
         return $instance;
     }
 
-    public function withWhitelist($whitelist)
+    public function withAllowedHeaders($allowedHeaders)
     {
         $instance = clone $this;
 
-        $instance->setWhitelist($whitelist);
+        $instance->setAllowedHeaders($allowedHeaders);
 
         return $instance;
     }
@@ -55,7 +55,7 @@ final class Resolver
 
         $resolved = array();
 
-        foreach ($this->whitelist as $header) {
+        foreach ($this->allowedHeaders as $header) {
             if (!isset($headers[$header])) {
                 continue;
             }
@@ -110,15 +110,15 @@ final class Resolver
         $this->mapping = array_change_key_case($mapping, CASE_LOWER);
     }
 
-    private function setWhitelist($whitelist)
+    private function setAllowedHeaders($allowedHeaders)
     {
-        if (!is_array($whitelist)) {
-            $whitelist = array_map(
+        if (!is_array($allowedHeaders)) {
+            $allowedHeaders = array_map(
                 'trim',
-                explode(',', (string) $whitelist)
+                explode(',', (string) $allowedHeaders)
             );
         }
 
-        $this->whitelist = array_map('strtolower', $whitelist);
+        $this->allowedHeaders = array_map('strtolower', $allowedHeaders);
     }
 }

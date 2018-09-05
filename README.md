@@ -23,7 +23,7 @@ Example
 
 ```php
 $resolved = (new Jsor\HttpClientHints\Resolver())
-    ->withWhitelist([
+    ->withAllowedHeaders([
         // Process only Width and DPR headers
         'Width',
         'DPR',

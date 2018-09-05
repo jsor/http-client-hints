@@ -61,7 +61,7 @@ class ResolverTest extends \PHPUnit_Framework_TestCase
                 'width' => 'w',
                 'dpr'   => 'device-pixel-ratio'
             ),
-            'whitelist' => array(
+            'allowed_headers' => array(
                 'width',
                 'dpr',
             )
@@ -91,7 +91,7 @@ class ResolverTest extends \PHPUnit_Framework_TestCase
                 'Width' => 'w',
                 'Dpr'   => 'device-pixel-ratio',
             ))
-            ->withWhitelist(array(
+            ->withAllowedHeaders(array(
                 'width',
                 'dpr',
             ))
@@ -112,12 +112,12 @@ class ResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function it_supports_whitelist_as_string()
+    public function it_supports_allowed_headers_as_string()
     {
         $resolver = new Resolver();
 
         $resolver = $resolver
-            ->withWhitelist('Width,DPR,FOO')
+            ->withAllowedHeaders('Width,DPR,FOO')
         ;
 
         $params = $resolver->resolve(array(
@@ -139,7 +139,7 @@ class ResolverTest extends \PHPUnit_Framework_TestCase
         $resolver = new Resolver();
 
         $resolver = $resolver
-            ->withWhitelist('Width,DPR,FOO')
+            ->withAllowedHeaders('Width,DPR,FOO')
         ;
 
         $params = $resolver->resolve(
