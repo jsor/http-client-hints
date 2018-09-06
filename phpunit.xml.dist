@@ -12,7 +12,7 @@
          bootstrap="vendor/autoload.php"
 >
     <testsuites>
-        <testsuite name="Geokit Test Suite">
+        <testsuite name="HTTP Client Hints Test Suite">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
